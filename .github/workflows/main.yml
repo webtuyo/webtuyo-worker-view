@@ -15,23 +15,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Load .env variables
-        id: load-env
-        run: |
-          if [ -f .env ]; then
-            echo "Loading .env variables..."
-            grep -v '^#' .env | grep -v '^[[:space:]]*$' | while IFS= read -r line; do
-              # Ensure variables are exported for subsequent steps using $VAR syntax
-              echo "$line" >> $GITHUB_ENV
-            done
-            echo "Variables loaded from .env:"
-            # Print loaded env vars for debugging (optional)
-            grep -v '^#' .env | grep -v '^[[:space:]]*$'
-          else
-            echo "Error: .env file not found!"
-            exit 1
-          fi
-
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
