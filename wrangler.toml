@@ -1,0 +1,15 @@
+# wrangler.toml
+name = "${WORKER_NAME}" # Reference from .env
+main = "worker.js"
+compatibility_date = "2024-02-19"
+
+#Optional: Route configuration
+#routes = [
+#  { pattern = "youdomain.com", custom_domain = true }
+#]
+
+# Add this section for secrets
+[vars]
+#YOUR_DOMAIN="${YOUR_DOMAIN}"
+
+
