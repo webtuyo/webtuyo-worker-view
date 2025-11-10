@@ -7,6 +7,10 @@ on:
         description: 'Worker Name'
         required: true
         type: string
+      domain:
+        description: 'Your Domain'
+        required: true
+        type: string
 
 jobs:
   deploy:
@@ -42,7 +46,7 @@ jobs:
           # Use a different delimiter for sed in case names have slashes
           sed -i "s|\${WORKER_NAME}|${{ github.event.inputs.worker_name }}|g" wrangler.toml
           sed -i "s|\${DB_NAME}|${{ github.event.inputs.worker_name }}-DB|g" wrangler.toml
-          sed -i "s|\${YOUR_DOMAIN}|"https://design.webtuyo.com","https://edit.webtuyo.com","https://preview.webtuyo.com", |g" wrangler.toml
+          sed -i "s|\${YOUR_DOMAIN}|${{ github.event.inputs.domain }}|g" wrangler.toml
           echo "wrangler.toml after static substitution:"
           cat wrangler.toml
 
