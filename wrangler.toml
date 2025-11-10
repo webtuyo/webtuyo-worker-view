@@ -10,6 +10,6 @@ compatibility_date = "2024-02-19"
 
 # Add this section for secrets
 [vars]
-#YOUR_DOMAIN="${YOUR_DOMAIN}"
+YOUR_DOMAIN="${YOUR_DOMAIN}"
 
 
